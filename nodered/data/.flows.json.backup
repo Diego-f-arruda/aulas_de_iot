@@ -1,0 +1,118 @@
+[
+    {
+        "id": "272c4acf17a904be",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "eef85b2360e6078c",
+        "type": "mqtt-broker",
+        "name": "Mosquitto",
+        "broker": "mosquitto",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "ee95888deceb3f20",
+        "type": "debug",
+        "z": "272c4acf17a904be",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "233f9a91bd6716ce",
+        "type": "function",
+        "z": "272c4acf17a904be",
+        "name": "function 1",
+        "func": "msg.teste = \"teste\"\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 140,
+        "wires": [
+            [
+                "ee95888deceb3f20"
+            ]
+        ]
+    },
+    {
+        "id": "ce6f813eabe0137b",
+        "type": "uuid",
+        "z": "272c4acf17a904be",
+        "uuidVersion": "v4",
+        "namespaceType": "",
+        "namespace": "",
+        "namespaceCustom": "",
+        "name": "",
+        "field": "id",
+        "fieldType": "msg",
+        "x": 270,
+        "y": 120,
+        "wires": [
+            [
+                "233f9a91bd6716ce"
+            ]
+        ]
+    },
+    {
+        "id": "b2d428e73759c62e",
+        "type": "mqtt in",
+        "z": "272c4acf17a904be",
+        "name": "",
+        "topic": "sensor/temperatura",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "eef85b2360e6078c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "ce6f813eabe0137b"
+            ]
+        ]
+    }
+]
